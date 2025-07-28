@@ -1,10 +1,9 @@
-// components.js - UI Components
+
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, TrendingUp, TrendingDown, Activity, Volume2, Download, ArrowUp, ArrowDown, Minus, BarChart3, PieChart, Target } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart, BarChart, Bar } from 'recharts';
 import { generateMockData, generateIntradayData, calculateMonthlySummary } from './utils.js';
 
-// Tooltip component for calendar cells
 export const CalendarTooltip = ({ date, data, position }) => {
   if (!date || !data || !position) return null;
 
@@ -163,8 +162,7 @@ export const CalendarGrid = ({ currentDate, view, selectedDate, onDateSelect, on
     const data = {};
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
-    
-    // Generate data for the entire month
+   
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     for (let day = 1; day <= daysInMonth; day++) {
       const date = new Date(year, month, day);
@@ -181,12 +179,10 @@ export const CalendarGrid = ({ currentDate, view, selectedDate, onDateSelect, on
 
   const days = [];
   
-  // Empty cells for days before the first day of the month
   for (let i = 0; i < firstDay; i++) {
     days.push(<div key={`empty-${i}`} className="p-2"></div>);
   }
 
-  // Days of the month
   for (let day = 1; day <= daysInMonth; day++) {
     const date = new Date(year, month, day);
     const isToday = date.toDateString() === today.toDateString();
@@ -226,13 +222,12 @@ export const RealTimeGraph = () => {
   const [priceChange, setPriceChange] = useState(0);
 
   useEffect(() => {
-    // Initialize with generated data
+   
     const initialData = generateIntradayData();
     setIntradayData(initialData);
     setCurrentPrice(initialData[initialData.length - 1].price);
     setPriceChange(initialData[initialData.length - 1].change);
 
-    // Simulate real-time updates
     const interval = setInterval(() => {
       setIntradayData(prevData => {
         const newData = [...prevData];
@@ -242,13 +237,12 @@ export const RealTimeGraph = () => {
         const startPrice = newData[0].price;
         const newChange = ((newPrice - startPrice) / startPrice) * 100;
 
-        // Update the last data point or add a new one
         const now = new Date();
         const currentHour = now.getHours();
         const timeStr = `${currentHour.toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
 
         if (newData.length > 24) {
-          newData.shift(); // Remove the oldest data point
+          newData.shift();
         }
 
         newData.push({
@@ -262,7 +256,7 @@ export const RealTimeGraph = () => {
         setPriceChange(newChange);
         return newData;
       });
-    }, 3000); // Update every 3 seconds
+    }, 3000); 
 
     return () => clearInterval(interval);
   }, []);
@@ -304,7 +298,7 @@ export const RealTimeGraph = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Price Chart */}
+        
         <div className="lg:col-span-2">
           <div className="h-64">
             <ResponsiveContainer width="100%" height="100%">
@@ -340,7 +334,7 @@ export const RealTimeGraph = () => {
           </div>
         </div>
 
-        {/* Volume Chart */}
+    
         <div>
           <h4 className="font-semibold text-gray-700 mb-3">Volume Distribution</h4>
           <div className="h-64">
@@ -380,7 +374,7 @@ export const RealTimeGraph = () => {
         </div>
       </div>
 
-      {/* Quick Stats */}
+     
       <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-blue-50 p-3 rounded-lg">
           <div className="text-xs text-blue-600 font-medium">24h High</div>

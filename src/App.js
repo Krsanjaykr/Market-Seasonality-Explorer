@@ -1,7 +1,7 @@
-// App.js - Main application entry point
+
 import React from 'react';
 import MarketSeasonalityExplorer from './MarketSeasonalityExplorer.js';
-import './App.css'; // Optional: for any global styles
+import './App.css'; 
 
 function App() {
   return (

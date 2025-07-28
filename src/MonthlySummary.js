@@ -1,4 +1,4 @@
-// MonthlySummary.js - Monthly summary and data panel components
+
 import React from 'react';
 import { ChevronLeft, TrendingUp, Activity, Volume2, Download, BarChart3, PieChart, Target } from 'lucide-react';
 import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart, BarChart, Bar } from 'recharts';
@@ -31,7 +31,7 @@ export const MonthlySummary = ({ currentDate, monthData }) => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        {/* Key Metrics */}
+  
         <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg">
           <div className="flex items-center justify-between mb-2">
             <TrendingUp className="w-5 h-5 text-blue-600" />
@@ -78,7 +78,7 @@ export const MonthlySummary = ({ currentDate, monthData }) => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Performance Distribution */}
+    
         <div className="bg-gray-50 p-4 rounded-lg">
           <h4 className="font-semibold text-lg mb-4 flex items-center">
             <PieChart className="w-4 h-4 mr-2" />
@@ -105,7 +105,6 @@ export const MonthlySummary = ({ currentDate, monthData }) => {
           </div>
         </div>
 
-        {/* Volatility Distribution */}
         <div className="bg-gray-50 p-4 rounded-lg">
           <h4 className="font-semibold text-lg mb-4">Volatility Distribution</h4>
           <div className="space-y-3">
@@ -161,7 +160,6 @@ export const MonthlySummary = ({ currentDate, monthData }) => {
         </div>
       </div>
 
-      {/* Monthly Performance Chart */}
       <div className="mt-6">
         <h4 className="font-semibold text-lg mb-4">Monthly Trend Analysis</h4>
         <div className="h-64 bg-white p-4 rounded-lg border">
@@ -233,8 +231,6 @@ export const DataPanel = ({ selectedDate, selectedData, onClose }) => {
             ×
           </button>
         </div>
-
-        {/* Scrollable Content */}
         <div className="flex-1 overflow-y-auto p-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div className="space-y-4">
@@ -327,7 +323,6 @@ export const DataPanel = ({ selectedDate, selectedData, onClose }) => {
             </div>
           </div>
 
-          {/* Additional detailed analysis section */}
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg mb-6">
             <h3 className="font-semibold text-lg mb-4 text-blue-800">Detailed Market Analysis</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -365,7 +360,6 @@ export const DataPanel = ({ selectedDate, selectedData, onClose }) => {
             </div>
           </div>
 
-          {/* Chart Section */}
           <div className="bg-gray-50 p-6 rounded-lg mb-6">
             <h3 className="font-semibold text-lg mb-4">Price Action Visualization</h3>
             <div className="h-64 bg-white p-4 rounded-lg border">
@@ -401,7 +395,6 @@ export const DataPanel = ({ selectedDate, selectedData, onClose }) => {
             </div>
           </div>
 
-          {/* Risk Metrics */}
           <div className="bg-gray-50 p-6 rounded-lg">
             <h3 className="font-semibold text-lg mb-4">Risk Assessment</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -465,7 +458,6 @@ export const DataPanel = ({ selectedDate, selectedData, onClose }) => {
           </div>
         </div>
 
-        {/* Fixed Footer */}
         <div className="flex-shrink-0 p-6 border-t border-gray-200 bg-gray-50 rounded-b-lg">
           <div className="flex justify-between items-center">
             <button

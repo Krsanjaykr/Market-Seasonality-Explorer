@@ -1,6 +1,4 @@
-// utils.js - Data generation and utility functions
 
-// Mock data generator for demonstration
 export const generateMockData = (date) => {
   const seed = date.getTime();
   const random = (min, max) => min + (Math.sin(seed + min) * 0.5 + 0.5) * (max - min);
@@ -17,7 +15,7 @@ export const generateMockData = (date) => {
   };
 };
 
-// Generate real-time intraday data
+
 export const generateIntradayData = () => {
   const data = [];
   const startPrice = 48000;
@@ -38,7 +36,6 @@ export const generateIntradayData = () => {
   return data;
 };
 
-// Calculate monthly summary statistics
 export const calculateMonthlySummary = (monthData) => {
   const values = Object.values(monthData);
   if (values.length === 0) return null;

@@ -1,4 +1,4 @@
-// MarketSeasonalityExplorer.js - Main application component
+
 import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, Calendar, Settings } from 'lucide-react';
 import { generateMockData } from './utils.js';
@@ -68,7 +68,7 @@ const MarketSeasonalityExplorer = () => {
   }, [handleKeyDown]);
 
   useEffect(() => {
-    // Generate month data when currentDate changes
+  
     const data = {};
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
@@ -111,11 +111,11 @@ const MarketSeasonalityExplorer = () => {
           </div>
         </div>
 
-        {/* Real-time Graph */}
+      
         <RealTimeGraph />
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          {/* Main Calendar */}
+      
           <div className="lg:col-span-3">
             <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
               <div className="flex justify-between items-center mb-6">
@@ -149,11 +149,10 @@ const MarketSeasonalityExplorer = () => {
               />
             </div>
 
-            {/* Monthly Summary */}
+          
             <MonthlySummary currentDate={currentDate} monthData={monthData} />
           </div>
 
-          {/* Sidebar */}
           <div className="space-y-6">
             <LegendPanel />
             
@@ -200,14 +199,13 @@ const MarketSeasonalityExplorer = () => {
           </div>
         </div>
 
-        {/* Tooltip */}
         <CalendarTooltip
           date={tooltipData.date}
           data={tooltipData.data}
           position={tooltipData.position}
         />
 
-        {/* Data Panel Modal */}
+      
         {showPanel && (
           <DataPanel
             selectedDate={selectedDate}
